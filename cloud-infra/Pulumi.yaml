@@ -1,0 +1,3 @@
+name: jax-gpu-infra
+runtime: python
+description: Infrastructure for JAX GPU compute resources on GCP

@@ -1,0 +1,17 @@
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# Python cache and temporary files
+**/__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+# Pulumi state and runtime files
+.pulumi/
+*.log
