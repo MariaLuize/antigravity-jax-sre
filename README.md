@@ -31,13 +31,13 @@ antigravity-jax-sre/
 
 ### 1. Multi-Folder Cross-Repository Context Isolation
 Unlike traditional monoliths or tightly coupled projects, this repository uses **Multi-Folder Cross-Repository Context**.
-*   **[jax-model/](file:///Users/marialuize/GitLab/antigravity-jax-sre/jax-model)** contains pure JAX computational code that has zero awareness of cloud provider APIs, regions, or networks.
-*   **[cloud-infra/](file:///Users/marialuize/GitLab/antigravity-jax-sre/cloud-infra)** contains purely declarative infrastructure configurations defining the VPC, firewall rules, and compute parameters.
+*   **[jax-model/](antigravity-jax-sre/jax-model)** contains pure JAX computational code that has zero awareness of cloud provider APIs, regions, or networks.
+*   **[cloud-infra/](antigravity-jax-sre/cloud-infra)** contains purely declarative infrastructure configurations defining the VPC, firewall rules, and compute parameters.
 
 The Antigravity SRE agent spans this boundary during analysis to match infrastructure capability to application needs:
-1.  **Reads** the [train.py](file:///Users/marialuize/GitLab/antigravity-jax-sre/jax-model/train.py) model configuration to identify GPU demands (e.g., CUDA or accelerated matrix multiplications).
-2.  **Correlates** dependencies within the [requirements.txt](file:///Users/marialuize/GitLab/antigravity-jax-sre/jax-model/requirements.txt).
-3.  **Generates and Mutates** the cloud blueprint in [__main__.py](file:///Users/marialuize/GitLab/antigravity-jax-sre/cloud-infra/__main__.py) to supply the corresponding hardware (an N1 instance with an attached NVIDIA T4 GPU).
+1.  **Reads** the [train.py](antigravity-jax-sre/jax-model/train.py) model configuration to identify GPU demands (e.g., CUDA or accelerated matrix multiplications).
+2.  **Correlates** dependencies within the [requirements.txt](antigravity-jax-sre/jax-model/requirements.txt).
+3.  **Generates and Mutates** the cloud blueprint in [__main__.py](antigravity-jax-sre/cloud-infra/__main__.py) to supply the corresponding hardware (an N1 instance with an attached NVIDIA T4 GPU).
 
 > [!NOTE]
 > This separation prevents "dependency pollution," keeping large ML weights/runtimes isolated from lightweight deployment scripts, and ensures the code remains environment-agnostic.
