@@ -15,3 +15,5 @@ env/
 # Pulumi state and runtime files
 .pulumi/
 *.log
+Pulumi.*.yaml
+
